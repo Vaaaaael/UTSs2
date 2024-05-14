@@ -17,10 +17,15 @@ class Keuangan {
         totalTabungan += jumlah;
     }
 
+    public double getTotalUangSaatIni() {
+        return totalTabungan - totalPengeluaran;
+    }
+
     public void laporanHarian() {
         System.out.println("==== Laporan Harian ====");
         System.out.println("Total Pengeluaran: " + totalPengeluaran);
         System.out.println("Total Tabungan: " + totalTabungan);
+        System.out.println("Total Uang Saat Ini: " + getTotalUangSaatIni());
     }
 }
 
@@ -60,6 +65,8 @@ public class Main {
                     System.out.println("Pilihan tidak valid.");
                     break;
             }
+            // Membersihkan newline buffer
+            scanner.nextLine();
         }
     }
 }
