@@ -1,0 +1,65 @@
+import java.util.Scanner;
+
+class Keuangan {
+    private double totalPengeluaran;
+    private double totalTabungan;
+
+    public Keuangan() {
+        totalPengeluaran = 0;
+        totalTabungan = 0;
+    }
+
+    public void tambahPengeluaran(double jumlah) {
+        totalPengeluaran += jumlah;
+    }
+
+    public void tambahTabungan(double jumlah) {
+        totalTabungan += jumlah;
+    }
+
+    public void laporanHarian() {
+        System.out.println("==== Laporan Harian ====");
+        System.out.println("Total Pengeluaran: " + totalPengeluaran);
+        System.out.println("Total Tabungan: " + totalTabungan);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Keuangan keuangan = new Keuangan();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("\n1. Masukkan Pengeluaran");
+            System.out.println("2. Masukkan Jumlah Tabungan Harian");
+            System.out.println("3. Lihat Laporan Harian");
+            System.out.println("4. Keluar");
+
+            System.out.print("Pilih menu: ");
+            String pilihan = scanner.nextLine();
+
+            switch (pilihan) {
+                case "1":
+                    System.out.print("Masukkan jumlah pengeluaran: ");
+                    double pengeluaran = scanner.nextDouble();
+                    keuangan.tambahPengeluaran(pengeluaran);
+                    break;
+                case "2":
+                    System.out.print("Masukkan jumlah tabungan harian: ");
+                    double tabungan = scanner.nextDouble();
+                    keuangan.tambahTabungan(tabungan);
+                    break;
+                case "3":
+                    keuangan.laporanHarian();
+                    break;
+                case "4":
+                    System.out.println("Terima kasih! Sampai jumpa.");
+                    scanner.close();
+                    System.exit(0);
+                default:
+                    System.out.println("Pilihan tidak valid.");
+                    break;
+            }
+        }
+    }
+}
