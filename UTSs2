@@ -27,6 +27,13 @@ class Keuangan {
         System.out.println("Total Tabungan: " + totalTabungan);
         System.out.println("Total Uang Saat Ini: " + getTotalUangSaatIni());
     }
+
+    // Metode clear untuk mengatur ulang pengeluaran dan tabungan
+    public void clear() {
+        totalPengeluaran = 0;
+        totalTabungan = 0;
+        System.out.println("Data keuangan telah diatur ulang.");
+    }
 }
 
 public class Main {
@@ -38,7 +45,8 @@ public class Main {
             System.out.println("\n1. Masukkan Pengeluaran");
             System.out.println("2. Masukkan Jumlah Tabungan Harian");
             System.out.println("3. Lihat Laporan Harian");
-            System.out.println("4. Keluar");
+            System.out.println("4. Clear Data Keuangan");
+            System.out.println("5. Keluar");
 
             System.out.print("Pilih menu: ");
             String pilihan = scanner.nextLine();
@@ -58,6 +66,9 @@ public class Main {
                     keuangan.laporanHarian();
                     break;
                 case "4":
+                    keuangan.clear();
+                    break;
+                case "5":
                     System.out.println("Terima kasih! Sampai jumpa.");
                     scanner.close();
                     System.exit(0);
